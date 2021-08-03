@@ -17,7 +17,13 @@ Note: TMDB Api key is required
 
 
 ### Goals
-- Oauth logins
-- Allow users to add movie to thier favorites
-- User profiles
-- Test suites
+- Oauth
+   - Google OAuth
+   - Sessions
+- Make the frontend functional 
+- Allow users to add movie to their favorites
+   -  Create a database to allow users to store their favorites 
+- Add Test suites
+
+Stretch
+- User profiles 
