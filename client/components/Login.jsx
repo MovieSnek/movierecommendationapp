@@ -1,32 +1,33 @@
-const regeneratorRuntime = require("regenerator-runtime");
-const axios = require("axios");
-import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+const regeneratorRuntime = require('regenerator-runtime');
+const axios = require('axios');
+import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState(''); //setUsername to change state - useState assign initial value for state
+  const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [failed, setFailed] = useState(false);
   const [registered, setRegistered] = useState(false);
 
   // TODO: Use React hook here - figure out what this is doing
   useEffect(() => {
+    //use for getting data API
     console.log(username, password);
-    console.log("isLoggedIn state: ", isLoggedIn);
+    console.log('isLoggedIn state: ', isLoggedIn);
   });
 
   // right dummy code for sign in / create account buttons
   // for now, just send us to the home page
   async function onLoginClick() {
     await axios
-      .post("/login", {
+      .post('/login', {
         username,
         password,
       })
       .then((res) => {
         console.log(res);
-        if (res.data === "success") {
+        if (res.data === 'success') {
           setIsLoggedIn(true); //redirect us
         } else {
           // throw component error
@@ -41,7 +42,7 @@ function Login() {
     // TODO: Review the comment - does it make sense?
     // check against the data base if this is a valid username / password pair
     await axios
-      .post("/login/signup", {
+      .post('/login/signup', {
         username,
         password,
       })
@@ -68,25 +69,32 @@ function Login() {
           <input
             type='text'
             id='username'
-            placeholder={"username"}
+            placeholder={'username'}
             onChange={(e) => setUsername(e.target.value)}
-            className='textbox'></input>
+            className='textbox'
+          ></input>
           <div></div>
           <input
             type='text'
             id='password'
-            placeholder={"password"}
+            placeholder={'password'}
             onChange={(e) => setPassword(e.target.value)}
-            className='textbox'></input>
+            className='textbox'
+          ></input>
         </div>
         <div className='login' id='buttons'>
           <button className='buttons' id='logInButton' onClick={onLoginClick}>
             Sign in
           </button>
-          <div> </div>
-          <button className='buttons' id='signup' onClick={onRegisterClick}>
-            Create new account
-          </button>
+          <div>
+            <button className='buttons' id='signup' onClick={onRegisterClick}>
+              Create new account
+            </button>
+          </div>
+          <div id='customBtn' class='customGPlusSignIn'>
+            <span class='icon'></span>
+            <span class='buttonText'>Google</span>
+          </div>
         </div>
       </div>
     );
