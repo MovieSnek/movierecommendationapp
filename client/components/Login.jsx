@@ -1,16 +1,33 @@
 const regeneratorRuntime = require('regenerator-runtime');
 const axios = require('axios');
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState(''); //setUsername to change state - useState assign initial value for state
+=======
+
+import React, { useState, useEffect } from 'react';
+import { ReactDOM } from 'react';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
+// import '../stylesheets/styles.css';
+
+function Login() {
+  const [username, setUsername] = useState('');
+>>>>>>> 6b2ddad6dfcd8ea2a90f66ecdeacb9640adf3e5d
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [failed, setFailed] = useState(false);
   const [registered, setRegistered] = useState(false);
-
-  // TODO: Use React hook here - figure out what this is doing
+  // may need a few more for page behavior
   useEffect(() => {
     //use for getting data API
     console.log(username, password);
@@ -37,10 +54,7 @@ function Login() {
       });
   }
   async function onRegisterClick() {
-    // TODO: Add better functionality to the register (signup) button
-    // TODO: Remove redundant code
-    // TODO: Review the comment - does it make sense?
-    // check against the data base if this is a valid username / password pair
+    // check agains the data base if this is a valid username / password pair
     await axios
       .post('/login/signup', {
         username,
@@ -58,6 +72,14 @@ function Login() {
         // }
       })
       .catch((err) => console.log(err));
+  }
+
+  async function googleClick() {
+    try {
+      await fetch('/auth/google');
+    } catch (err) {
+      console.log(`googleclick: ${err}`);
+    }
   }
 
   // conditional rendering - if failed is true, render a warning popup
@@ -86,6 +108,7 @@ function Login() {
           <button className='buttons' id='logInButton' onClick={onLoginClick}>
             Sign in
           </button>
+<<<<<<< HEAD
           <div>
             <button className='buttons' id='signup' onClick={onRegisterClick}>
               Create new account
@@ -95,6 +118,15 @@ function Login() {
             <span class='icon'></span>
             <span class='buttonText'>Google</span>
           </div>
+=======
+          <div> </div>
+          <button className='buttons' id='signup' onClick={onRegisterClick}>
+            Create new account
+          </button>
+          <button className='buttons' id='googleSignup' onClick={googleClick}>
+            Create new account with Google
+          </button>
+>>>>>>> 6b2ddad6dfcd8ea2a90f66ecdeacb9640adf3e5d
         </div>
       </div>
     );
