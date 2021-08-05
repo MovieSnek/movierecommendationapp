@@ -6,7 +6,6 @@ import { Redirect } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState(''); //setUsername to change state - useState assign initial value for state
-=======
 
 import React, { useState, useEffect } from 'react';
 import { ReactDOM } from 'react';
