@@ -22,7 +22,6 @@ import {
 
 function Login() {
   const [username, setUsername] = useState('');
->>>>>>> 6b2ddad6dfcd8ea2a90f66ecdeacb9640adf3e5d
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -108,7 +107,6 @@ function Login() {
           <button className='buttons' id='logInButton' onClick={onLoginClick}>
             Sign in
           </button>
-<<<<<<< HEAD
           <div>
             <button className='buttons' id='signup' onClick={onRegisterClick}>
               Create new account
@@ -118,7 +116,6 @@ function Login() {
             <span class='icon'></span>
             <span class='buttonText'>Google</span>
           </div>
-=======
           <div> </div>
           <button className='buttons' id='signup' onClick={onRegisterClick}>
             Create new account
@@ -126,7 +123,6 @@ function Login() {
           <button className='buttons' id='googleSignup' onClick={googleClick}>
             Create new account with Google
           </button>
->>>>>>> 6b2ddad6dfcd8ea2a90f66ecdeacb9640adf3e5d
         </div>
       </div>
     );
